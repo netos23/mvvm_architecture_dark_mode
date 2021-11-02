@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_architecture_dark_mode/src/theme_model.dart';
 
-class ThemeViewModel extends ChangeNotifier{
-  bool _darkTheme = false;
+class ThemeViewModel{
+  final bool _darkTheme;
 
-  bool get darkTheme => _darkTheme;
-
-  set darkTheme(bool value) {
-    _darkTheme = value;
-    notifyListeners();
-  }
+  ThemeViewModel(this._darkTheme);
 
   ThemeData get theme{
     return _darkTheme ? ThemeModel().darkTheme : ThemeModel().lightTheme;

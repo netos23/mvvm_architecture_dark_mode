@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_architecture_dark_mode/src/theme_view_model.dart';
+import 'package:mvvm_architecture_dark_mode/src/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ThemePage extends StatefulWidget {
@@ -14,15 +14,13 @@ class _ThemePageState extends State<ThemePage> {
   @override
   Widget build(BuildContext context) {
 
-    final theme = Provider.of<ThemeViewModel>(context);
+    final theme = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
         body: Center(
           child: ElevatedButton(
             child: const Text('Button'),
-            style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor
-            ),
             onPressed: () {
               theme.darkTheme = !theme.darkTheme;
             },
